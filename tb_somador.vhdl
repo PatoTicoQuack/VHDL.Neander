@@ -66,8 +66,8 @@ architecture somar of tb_somador is
     signal soverflow : std_logic;
 
 begin
-    syCorreto <= sy(11) when sop <= '0' else sc2(11) when sop <= '1';
-    u_oflow : overflow port map(sx(11), syCorreto, sz(11), soverflow);
+    syCorreto <= sy(7) when sop <= '0' else sc2(7) when sop <= '1';
+    u_oflow : overflow port map(sx(7), syCorreto, sz(7), soverflow);
     u_mux : mux_2x1 port map(ss, ssubtr, sop, sz);
 
     u_somador_bit : somador_1_bit port map(sx(0), sy(0), scin, ss(0), saux(0));
@@ -114,8 +114,8 @@ begin
         wait for 192 ns;
 
         sop <= '1';
-        sx <= "00000000000";
-        sy <= "11111111111";
+        sx <= "00000000";
+        sy <= "11111111";
         wait for 192 ns;
 
         sop <= '0';

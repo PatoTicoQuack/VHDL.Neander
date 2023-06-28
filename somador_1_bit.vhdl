@@ -14,6 +14,6 @@ end entity;
 
 architecture somador of somador_1_bit is
 begin
-    s <= x xor (y xor cin) after 4 ns;
-    cout <= (x and cin) or (y and cin) or (x and y) after 3*4 ns;
+    s <= x xor (y xor cin);
+    cout <= (x and cin) or (y and cin) or (x and y);
 end architecture;

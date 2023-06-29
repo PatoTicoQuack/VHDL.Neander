@@ -1,44 +1,39 @@
 v 4
-file . "neander.vhdl" "021387674ffd1a70779520717b26f22ecd4d62fb" "20230628141604.085":
-  entity neander at 1( 0) + 0 on 925;
-  architecture computador of neander at 7( 75) + 0 on 926;
-file . "ula.vhdl" "f1d8edae0ef790a59d7902a3f0b1762920e46785" "20230628141604.093":
-  entity ula at 1( 0) + 0 on 939;
-  architecture math of ula at 16( 359) + 0 on 940;
-file . "reg_2_bits.vhdl" "75fcae41fb33a226bed5840f496af761db775c74" "20230628141604.088":
-  entity reg_2_bits at 1( 0) + 0 on 931;
-  architecture reg2bit of reg_2_bits at 14( 240) + 0 on 932;
-file . "modulo_ula.vhdl" "52dc3ca01a6fb91c144b6c14cc3b177a080e8d51" "20230628141604.081":
-  entity modulo_ula at 1( 0) + 0 on 917;
-  architecture comportamento of modulo_ula at 14( 340) + 0 on 918;
-file . "somador_8_bits.vhdl" "d549dd07d6402f6d67ec762665787a92884064a9" "20230628141604.092":
-  entity somador_8_bits at 1( 0) + 0 on 937;
-  architecture somar of somador_8_bits at 16( 318) + 0 on 938;
-file . "mux_5x8.vhdl" "0cec13d23e5a47d16c2b7d1a733b6ad9e9c2028f" "20230628141604.083":
-  entity mux_5x8 at 1( 0) + 0 on 921;
-  architecture behaviour of mux_5x8 at 16( 427) + 0 on 922;
-file . "somador_1_bit.vhdl" "99dba1564f3ad7fb00b80e972f9e532bcc3c5395" "20230628141604.091":
-  entity somador_1_bit at 1( 0) + 0 on 935;
-  architecture somador of somador_1_bit at 15( 239) + 0 on 936;
-file . "reg_8_bits.vhdl" "02b690c3555588faa92c91d86d652c152c382fee" "20230628141604.090":
-  entity reg_8_bits at 1( 0) + 0 on 933;
-  architecture reg8bit of reg_8_bits at 14( 240) + 0 on 934;
-file . "reg_1_bit.vhdl" "83c7e50886097ab044e6754695fca23967d3467a" "20230628141604.087":
-  entity reg_1_bit at 1( 0) + 0 on 929;
-  architecture storage of reg_1_bit at 11( 199) + 0 on 930;
-file . "overflow.vhdl" "cc48b81100ede3b2013951854dc416637e7999ea" "20230628141604.086":
-  entity overflow at 1( 0) + 0 on 927;
-  architecture behavior of overflow at 14( 202) + 0 on 928;
-file . "mux_reg.vhdl" "6de8c077dd96e0b8f18bf316e9f25c4b6c3d5a2c" "20230628141604.084":
-  entity mux_reg at 1( 0) + 0 on 923;
-  architecture behaviour of mux_reg at 13( 203) + 0 on 924;
-file . "mux_2x1.vhdl" "39b337d41494747980ec21a15932a2c435c67175" "20230628141604.082":
-  entity mux_2x1 at 1( 0) + 0 on 919;
-  architecture behaviour of mux_2x1 at 13( 260) + 0 on 920;
-file . "ffjk.vhdl" "d4b412e6b4e0db48c84417e421e401565e2bf8dd" "20230628141604.080":
-  entity ffjk at 2( 70) + 0 on 911;
-  architecture latch of ffjk at 14( 316) + 0 on 912;
-  entity ffd at 72( 2349) + 0 on 913;
-  architecture latch of ffd at 84( 2594) + 0 on 914;
-  entity fft at 107( 3127) + 0 on 915;
-  architecture latch of fft at 119( 3372) + 0 on 916;
+file . "ula.vhdl" "f1d8edae0ef790a59d7902a3f0b1762920e46785" "20230629225812.731":
+  entity ula at 1( 0) + 0 on 39;
+  architecture math of ula at 16( 359) + 0 on 40;
+file . "somador.vhdl" "a31ab33c7b51b8f42f762b812b2cbc45e07f2cb2" "20230629225812.731":
+  entity somador_1_bit at 3( 21) + 0 on 35;
+  architecture somador of somador_1_bit at 17( 260) + 0 on 36;
+  entity somador_8_bits at 24( 428) + 0 on 37;
+  architecture somar of somador_8_bits at 39( 746) + 0 on 38;
+file . "reg.vhdl" "8e86bfd0af90e7659bb00ec41cafe6b28779712c" "20230629225812.730":
+  entity reg_1_bit at 1( 0) + 0 on 29;
+  architecture storage of reg_1_bit at 11( 199) + 0 on 30;
+  entity reg_2_bits at 40( 893) + 0 on 31;
+  architecture reg2bit of reg_2_bits at 53( 1133) + 0 on 32;
+  entity reg_8_bits at 70( 1526) + 0 on 33;
+  architecture reg8bit of reg_8_bits at 83( 1766) + 0 on 34;
+file . "overflow.vhdl" "cc48b81100ede3b2013951854dc416637e7999ea" "20230629225812.729":
+  entity overflow at 1( 0) + 0 on 27;
+  architecture behavior of overflow at 14( 202) + 0 on 28;
+file . "neander.vhdl" "021387674ffd1a70779520717b26f22ecd4d62fb" "20230629225812.729":
+  entity neander at 1( 0) + 0 on 25;
+  architecture computador of neander at 7( 75) + 0 on 26;
+file . "mux.vhdl" "ba3f2e9a83d5397afc8e0e40d03558a76218c5be" "20230629225812.728":
+  entity mux_2x1 at 1( 0) + 0 on 19;
+  architecture behaviour of mux_2x1 at 14( 271) + 0 on 20;
+  entity mux_5x8 at 21( 398) + 0 on 21;
+  architecture behaviour of mux_5x8 at 36( 825) + 0 on 22;
+  entity mux_reg at 45( 1054) + 0 on 23;
+  architecture behaviour of mux_reg at 57( 1257) + 0 on 24;
+file . "modulo_ula.vhdl" "52dc3ca01a6fb91c144b6c14cc3b177a080e8d51" "20230629225812.727":
+  entity modulo_ula at 1( 0) + 0 on 17;
+  architecture comportamento of modulo_ula at 14( 340) + 0 on 18;
+file . "ffjk.vhdl" "d4b412e6b4e0db48c84417e421e401565e2bf8dd" "20230629225812.727":
+  entity ffjk at 2( 70) + 0 on 11;
+  architecture latch of ffjk at 14( 316) + 0 on 12;
+  entity ffd at 72( 2349) + 0 on 13;
+  architecture latch of ffd at 84( 2594) + 0 on 14;
+  entity fft at 107( 3127) + 0 on 15;
+  architecture latch of fft at 119( 3372) + 0 on 16;

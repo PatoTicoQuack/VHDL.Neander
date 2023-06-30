@@ -18,6 +18,19 @@ architecture computador of neander is
     );
     end component;
 
+    
+    component um is 
+        port(
+            end_PcG : in std_logic_vector(7 downto 0);
+            end_BarrG : in std_logic_vector(7 downto 0);
+            barramento : inout std_logic_vector(7 downto 0);
+            barrPC : in std_logic;
+            clock : in std_logic;
+            clear : in std_logic;
+            fioNrw : in std_logic
+        );
+    end component;
+
     signal s_barramento : std_logic_vector(7 downto 0);
     signal s_acnrw : std_logic;
     signal s_clock : std_logic := '0';
@@ -29,6 +42,7 @@ architecture computador of neander is
         
         s_clock <= not(s_clock) after clock_period/2;
         u_ula : ula port map(s_barramento, s_acnrw, s_clock, s_selUla, s_clear, s_flagnz);
+        u_um : um port map(, , s_barramento, , s_clock, s_clear, s_acnrw);
     
         p_neander : process
         begin

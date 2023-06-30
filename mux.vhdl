@@ -41,6 +41,24 @@ begin
 end architecture;
 
 
+-- Mux 2x8
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity mux_2x8 is
+    port(
+        end_PC : in std_logic_vector(7 downto 0);
+        end_Barr : in std_logic_vector(7 downto 0);
+        op : in std_logic;
+        z : out std_logic_vector(7 downto 0)
+    );
+end entity;
+
+architecture behaviour of mux_2x8 is
+begin
+    z <= end_PC when op ='1' else end_Barr when op = '0';
+end architecture;
+
 -- Mux Registrador
 library ieee;
 use ieee.std_logic_1164.all;

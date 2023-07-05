@@ -9,7 +9,9 @@ entity um is
         barrPC : in std_logic;
         clock : in std_logic;
         clear : in std_logic;
-        fioNrw : in std_logic
+        REM_nrw : in std_logic;
+        MEM_nrw : in std_logic;
+        RDM_nrw : in std_logic
     );
 end entity;
 
@@ -19,7 +21,7 @@ architecture comportamento of um is
             end_PC : in std_logic_vector(7 downto 0);
             end_Barr : in std_logic_vector(7 downto 0);
             op : in std_logic;
-            s_mux2rem : out std_logic_vector(7 downto 0)
+            z : out std_logic_vector(7 downto 0)
         );
     end component;
 
@@ -46,10 +48,14 @@ architecture comportamento of um is
     signal s_muxSaida : std_logic_vector(7 downto 0);
     signal s_rem2mem : std_logic_vector(7 downto 0);
     signal s_mem2rdm : std_logic_vector(7 downto 0);
+    signal s_rdm2barr : std_logic_vector(7 downto 0);
     
     begin
-    umux : mux_2x8 port map(end_PcG, end_BarrG, barrPC, s_muxSaida);
-    remMar : reg_8_bits port map(s_muxSaida, clock, '1', clear, fioNrw, s_rem2mem);
-    uMem : as_ram port map(s_rem2mem, s_mem2rdm, fioNrw, clear);
-    rdmMbr : reg_8_bits port map(s_mem2rdm, clock, '1', clear, fioNrw, barramento);
+    barramento <= s_rdm2barr when MEM_nrw = '0' else (others => 'Z');
+    s_mem2rdm <= barramento when MEM_nrw = '1' else (others => 'Z');
+
+    u_mux : mux_2x8 port map(end_PcG, end_BarrG, barrPC, s_muxSaida);
+    remMar : reg_8_bits port map(s_muxSaida, clock, '1', clear, REM_nrw, s_rem2mem);
+    uMem : as_ram port map(s_rem2mem, s_mem2rdm, MEM_nrw, clear);
+    rdmMbr : reg_8_bits port map(s_mem2rdm, clock, '1', clear, RDM_nrw, s_rdm2barr);
 end architecture;

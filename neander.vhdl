@@ -31,6 +31,24 @@ architecture computador of neander is
         );
     end component;
 
+    component PC is
+        port(
+            barramento : in std_logic_vector (7 downto 0);
+            nBarInc : in std_logic;
+            pcRW : in std_logic;
+            clear, clock: in std_logic;
+            endPC2MEM : out std_logic_vector (7 downto 0)
+        );
+    end component;
+    
+    component controle is
+        port(
+            barramento : in std_logic_vector (7 downto 0);
+            clock, clear : in std_logic;
+            nrw : in std_logic
+        );
+    end component;
+    
     signal s_PcG : std_logic_vector (7 downto 0);
     signal s_Barr : std_logic_vector (7 downto 0);
     signal s_BarrPC : std_logic;
@@ -39,13 +57,15 @@ architecture computador of neander is
     signal s_clock : std_logic := '0';
     signal s_clear : std_logic;
     signal s_flagnz : std_logic_vector(1 downto 0);
-    signal s_selUla : std_logic_vector(2 downto 0);    
+    signal s_selUla : std_logic_vector(2 downto 0);
+    signal s_barUC : std_logic_vector(10 downto 0);    
 
     begin
         
         s_clock <= not(s_clock) after clock_period/2;
-        u_ula : ula port map(s_barramento, s_acnrw, s_clock, s_selUla, s_clear, s_flagnz);
-        u_um : um port map(s_PcG, s_Barr, s_barramento, s_BarrPC, s_clock, s_clear, s_acnrw);
+        u_ula : ula port map(s_barramento, s_barUC(0), s_clock, s_selUla, s_clear, s_flagnz);
+        u_um : um port map(s_PcG, s_Barr, s_barramento, s_barUC(9), s_clock, s_clear, s_barUC(0));
+        u_controle : controle port map (s_barramento, s_clock, s_clear, s_barUC(4));
     
         p_neander : process
         begin

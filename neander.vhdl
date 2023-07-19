@@ -48,6 +48,15 @@ architecture computador of neander is
             nrw : in std_logic
         );
     end component;
+
+    component uc is    
+        port(
+            dec2uc : in std_logic_vector (10 downto 0);
+            nz : in std_logic_vector (1 downto 0);
+            clock, clr : in std_logic;
+            saidaMux : out std_logic_vector (10 downto 0)
+        );
+    end component;
     
     signal s_PcG : std_logic_vector (7 downto 0);
     signal s_Barr : std_logic_vector (7 downto 0);

@@ -4,7 +4,7 @@ use ieee.std_logic_1164.all;
 entity three_bits_counter is
     port(
         clk, clear : in std_logic;
-        q : out std_logic_vector (2 downto 0)
+        q : inout std_logic_vector (2 downto 0)
     );
 end entity;
 

@@ -81,9 +81,9 @@ architecture computador of neander is
 
     begin
         
-        --s_selUla(2) <= s_barramentoControle(8);
-        --s_selUla(1) <= s_barramentoControle(7);
-        --s_selUla(0) <= s_barramentoControle(6);
+        s_selUla(2) <= s_barramentoControle(8);
+        s_selUla(1) <= s_barramentoControle(7);
+        s_selUla(0) <= s_barramentoControle(6);
         s_clock <= not(s_clock) after clock_period/2;
         u_ula : ula port map(s_barramento, s_barramentoControle(4), s_clock, s_selUla, s_clear, s_barramentoControle(3), s_flagnz);
         u_pc : PC port map(s_barramento, s_barramentoControle(10), s_barramentoControle(5), s_clear, s_clock, s_PcG);
@@ -124,9 +124,9 @@ architecture computador of neander is
             s_clear <= '1';
             s_acnrw <= '0';
             --s_barramento <= "00000000";
-            s_selUla <= "000";
+            --s_selUla <= "000";
             wait for clock_period*3;
-            s_selUla <= "011";
+            --s_selUla <= "011";
             wait for clock_period;
             --s_selUla <= "010";
             wait for clock_period;

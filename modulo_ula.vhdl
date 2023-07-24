@@ -1,12 +1,11 @@
 library ieee;
 use ieee.std_logic_1164.all;
 
-    entity modulo_ula is
+entity modulo_ula is
     port(
         x : in std_logic_vector(7 downto 0);
         y: in std_logic_vector(7 downto 0);    
         ula_op: in std_logic_vector(2 downto 0);
-        nz : out std_logic_vector(1 downto 0);
         resultado: out std_logic_vector(7 downto 0)
     );
 end entity;
@@ -36,19 +35,26 @@ architecture comportamento of modulo_ula is
             scout : out std_logic
         );
     end component;
+
+
+    component detectorNz is
+        port(
+            e : in std_logic_vector(7 downto 0);
+            s : out std_logic_vector(1 downto 0)
+        );
+    end component;
     
     signal s_soma : std_logic_vector(7 downto 0);
     signal s_not : std_logic_vector(7 downto 0);
     signal s_and : std_logic_vector(7 downto 0);
     signal s_or : std_logic_vector(7 downto 0);
-
-component tb_somador is
-end component;
+    signal s_saidaMux : std_logic_vector(7 downto 0);
 
     begin
     s_not <= not(x);
     s_and <= x and y;
     s_or <= x or y;
     somador : somador_8_bits port map (x, y, '0', s_soma);
-    mux : mux_5x8 port map (s_not, s_and, s_or, s_soma, y, ula_op, resultado);
+    mux : mux_5x8 port map (s_not, s_and, s_or, s_soma, y, ula_op, s_saidaMux);
+    resultado <= s_saidaMux;
 end architecture;

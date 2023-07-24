@@ -55,19 +55,12 @@ architecture computador of neander is
     end component;
     
     signal s_PcG : std_logic_vector (7 downto 0);
-    signal s_Barr : std_logic_vector (7 downto 0);
-    signal s_BarrPC : std_logic;
     signal s_barramento : std_logic_vector(7 downto 0);
-    signal s_acnrw : std_logic;
     signal s_clock : std_logic := '0';
     signal s_clear : std_logic;
     signal s_flagnz : std_logic_vector(1 downto 0);
     signal s_selUla : std_logic_vector(2 downto 0);
     signal s_nBarInc : std_logic;
-    signal s_pcRW : std_logic;
-    signal s_REMnrw : std_logic;
-    signal s_MEMnrw : std_logic;
-    signal s_RDMnrw : std_logic;
     signal s_barramentoControle : std_logic_vector (10 downto 0);
 
     begin

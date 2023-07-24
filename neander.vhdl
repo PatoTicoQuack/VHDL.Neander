@@ -53,15 +53,6 @@ architecture computador of neander is
             barramentoControle : out std_logic_vector (10 downto 0)
         );
     end component;
-
-    component uc is    
-        port(
-            dec2uc : in std_logic_vector (10 downto 0);
-            nz : in std_logic_vector (1 downto 0);
-            clock, clr : in std_logic;
-            saidaMux : out std_logic_vector (10 downto 0)
-        );
-    end component;
     
     signal s_PcG : std_logic_vector (7 downto 0);
     signal s_Barr : std_logic_vector (7 downto 0);
@@ -90,17 +81,6 @@ architecture computador of neander is
         u_um : um port map(s_PcG, s_barramento, s_barramento, s_barramentoControle(9), s_clock, s_clear, s_barramentoControle(2), s_barramentoControle(3), s_barramentoControle(1));
         u_controle : controle port map (s_barramento, s_clock, s_clear, s_barramentoControle(0), s_flagnz, s_barramentoControle);
 
-        -- barrControle(0) = notBarInc
-        -- barrControle(1) = notBarPc 
-        -- barrControle(2) = ula(2) 
-        -- barrControle(3) = ula(1) 
-        -- barrControle(4) = ula(0) 
-        -- barrControle(5) = pcNRW 
-        -- barrControle(6) = acNRW 
-        -- barrControle(7) = memNRW 
-        -- barrControle(8) = remNRW 
-        -- barrControle(9) = rdmNRW 
-        -- barrControle(10) = riNRW
     
         -- barrControle(10) = notBarInc
         -- barrControle(9) = notBarPc 
@@ -122,18 +102,7 @@ architecture computador of neander is
             
             --s_barramentoControle <= "11000000100";
             s_clear <= '1';
-            s_acnrw <= '0';
-            --s_barramento <= "00000000";
-            --s_selUla <= "000";
-            wait for clock_period*3;
-            --s_selUla <= "011";
-            wait for clock_period;
-            --s_selUla <= "010";
-            wait for clock_period;
-            --s_selUla <= "001";
-            wait for clock_period;
-            --s_selUla <= "000";
-            wait for clock_period;
+
             wait;
         end process;
 end architecture;

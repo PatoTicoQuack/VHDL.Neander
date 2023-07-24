@@ -72,6 +72,22 @@ architecture algo of uc is
         );
     end component;
 
+    component JN is
+        port(
+            counterbit : in std_logic_vector (2 downto 0);
+            flagnz : in std_logic_vector (1 downto 0);
+            saida : out std_logic_vector (10 downto 0)
+        );
+    end component;
+
+    component JZ is
+        port(
+            counterbit : in std_logic_vector (2 downto 0);
+            flagnz : in std_logic_vector (1 downto 0);
+            saida : out std_logic_vector (10 downto 0)
+        );
+    end component;
+
     component HLT is
         port(
             counter : in std_logic_vector (2 downto 0);
@@ -103,8 +119,8 @@ begin
     u_not : NOT_UC port map(saidaCounter, saidaNot);
     u_hlt : HLT port map(saidaCounter, saidaHlt);
     u_jmp : JMP port map(saidaCounter, saidaJmp);
-    saidaJn <= saidaJmp when nz(1) = '1' else "11000100000";
-    saidaJz <= saidaJmp when nz(0) = '1' else "11000100000";
+    u_jn : JN port map (saidaCounter, nz, saidaJn);
+    u_jz : JZ port map (saidaCounter, nz, saidaJz);
 
     saidaMux <= saidaNop when dec2uc = "10000000000" else
                 saidaSta when dec2uc = "01000000000" else

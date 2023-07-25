@@ -14,7 +14,6 @@ architecture computador of neander is
         sel : in std_logic_vector(2 downto 0);
         clear : in std_logic;
         MEM_nrw     : in std_logic;
-        --bagui da memoria
         flagnz : out std_logic_vector(1 downto 0)
     );
     end component;
@@ -89,13 +88,10 @@ architecture computador of neander is
 
         p_neander : process
         begin
-
             s_clear <= '0';
             wait for clock_period;
             
-            --s_barramentoControle <= "11000000100";
             s_clear <= '1';
-
             wait;
         end process;
 end architecture;

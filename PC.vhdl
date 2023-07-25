@@ -49,7 +49,6 @@ architecture contar of PC is
 begin
 
     u_somador : somador_8_bits port map ("00000001", s_pcAtual, '0', s_add);
-    --u_mux_2x8 : mux_2x8 port map (barramento, s_add, nBarInc, s_mux2pc);
     s_mux2pc <= barramento when nBarInc = '0' else s_add;
     u_reg8bits : reg_8_bits port map (s_mux2pc, clock, '1', clear, pcRW, s_pcAtual);
     endPC2MEM <= s_pcAtual;

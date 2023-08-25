@@ -10,5 +10,5 @@ Neste repositório, você encontrará a implementação do Neander em VHDL, que 
 
 ## Alunos
 Eric Klaus<br/>
-Matheus Henrique<br/>
+Matheus Henrique Gaspar<br/>
 Matheus Rogerio
